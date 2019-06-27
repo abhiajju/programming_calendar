@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    	<title>PROGRAMMING CALENDAR</title>
+  </head>
+
+  <body>
+		<div class="container"> 
+
+		   {% if contests|length==0 %}
+				<div class="alert alert-danger" role="alert">
+					<h4 class="alert-heading">Aww Snap!!</h4>
+					<p>It seems there is some problem in fetching the contests at the moment. We suggest you to keep checking our website at regular intervals. Sorry for the inconvenience caused</p>
+					<hr>
+				</div>
+		   {% else %}
+				<div class="alert alert-success" role="alert">
+					<h4 class="alert-heading">Ahoyyy {{ res }} !!</h4>
+					<p>Aww yeah, below is the list of contests that are currently ongoing or will be coming soon for you to test your mettle.</p>
+					<hr>
+					<p class="mb-0">If you need to go to the contest link, click on the contest link section under each contest.</p>
+				</div>
+				<div class="row">
+				{% for contest in contests %}
+					<div class="col-sm-4">
+						<div class="card" style="margin-bottom: 20px;">
+						<div class="card-body">
+						<h5 class="card-title">{{ contest[0] }} </h5>
+						<p><a href = {{ contest[1] }} class="btn btn-primary" >Contest Link</a></p>
+						<p class="card-text">Start Date-Time {{ contest[2] }} {{ contest[3] }} </p>
+						<p class="card-text">End Date-Time {{ contest[4] }} {{ contest[4] }} </p>
+						</div>
+						</div>
+					</div>
+				{% endfor %} 
+				</div>	  
+			{% endif %}
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  	</body>
+</html>
